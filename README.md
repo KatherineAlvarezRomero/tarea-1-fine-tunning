@@ -1,6 +1,6 @@
-# Extracción de Entidades Clínicas en Cáncer de Mama
+# Extracción de Conceptos Médicos
 
-Este repositorio contiene el código utilizado para la extracción de entidades clínicas y la detección de la negación e incertidumbre a partir de historias clínicas en español, en el contexto del cáncer de mama.
+Este repositorio contiene el código utilizado para la creación de una herramienta de extracción de información que permite el procesamiento de historias clínicas de cáncer de pulmón de manera automática utilizando conceptos de Fine-Tuning y Transfer-Learning e integrando el modelo __, el cual fue pre-entrenado en lenguaje natural con un corpus anotado para extracción de entidades nombradas.
 
 ## Archivos
 
