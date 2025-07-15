@@ -1,0 +1,7 @@
+__pycache__
+roberta*
+modelo*
+venv
+.venv
+env
+.env
