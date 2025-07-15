@@ -1,4 +1,5 @@
-from entregable_1 import train_model
+# from entregable_1 import train_model
+from entregable_1_trained import train_model
 
 def test_metrics(trainer, tokenized_datasets):
     """
@@ -88,27 +89,4 @@ if __name__ == "__main__":
     print("=== INICIANDO PROGRAMA ===")
     print(f"Modelo a usar: {model_name}")
 
-    while True:
-        print("\n=== MENÚ DE OPCIONES ===")
-        print("1. Evaluar métricas en el conjunto de prueba")
-        print("2. Guardar modelo y tokenizer")
-        print("3. Probar el modelo con oraciones de ejemplo (NER)")
-        print("0. Salir")
-        
-        opcion = input("Seleccione una opción (0-3): ").strip()
-        
-        if opcion == "1":
-            print("\n[Evaluando métricas del conjunto de prueba...]")
-            test_metrics(trainer, tokenized_datasets)
-        elif opcion == "2":
-            nombre = input("Ingrese el nombre o ruta donde desea guardar el modelo: ").strip()
-            print(f"\n[Guardando modelo en '{nombre}'...]")
-            save_model(nombre, trainer, tokenizer)
-        elif opcion == "3":
-            print("\n[Probando modelo con oraciones de ejemplo...]")
-            test_model(trainer, model, tokenizer)
-        elif opcion == "0":
-            print("Saliendo del programa.")
-            break
-        else:
-            print("Opción no válida. Intente nuevamente.")
+    test_model(trainer, model, tokenizer)
