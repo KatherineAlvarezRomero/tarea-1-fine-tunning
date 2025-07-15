@@ -1,6 +1,6 @@
 from train import train_model
 
-def test_metrics(trainer):
+def test_metrics(trainer, tokenized_datasets):
     """
     Evalúa el rendimiento del modelo entrenado sobre el conjunto de prueba.
 
@@ -11,7 +11,7 @@ def test_metrics(trainer):
     Requiere que `trainer` y `tokenized_datasets["test"]` estén previamente definidos.
     """
     metrics = trainer.evaluate(tokenized_datasets["test"])
-    print("Test set evaluation metrics:")
+    print("Test metrics:")
     print(metrics)
 
 def save_model(name_save, trainer, tokenizer):
@@ -99,7 +99,7 @@ if __name__ == "__main__":
         
         if opcion == "1":
             print("\n[Evaluando métricas del conjunto de prueba...]")
-            test_metrics(trainer)
+            test_metrics(trainer, tokenized_datasets)
         elif opcion == "2":
             nombre = input("Ingrese el nombre o ruta donde desea guardar el modelo: ").strip()
             print(f"\n[Guardando modelo en '{nombre}'...]")
