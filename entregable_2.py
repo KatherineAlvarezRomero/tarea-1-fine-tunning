@@ -1,4 +1,4 @@
-from train import train_model
+from entregable_1 import train_model
 
 def test_metrics(trainer, tokenized_datasets):
     """
