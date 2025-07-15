@@ -9,7 +9,7 @@ Este repositorio contiene el código utilizado para la creación de una herramie
 
 
 ## Modelos utilizados
-- NER: [`anvorja/breast-cancer-biomedical-ner-sp`](https://huggingface.co/anvorja/breast-cancer-biomedical-ner-sp)
+- [`roberta-base-biomedical-clinical-es`](https://huggingface.co/PlanTL-GOB-ES/roberta-base-biomedical-clinical-es)
 
 ## Requisitos
 
