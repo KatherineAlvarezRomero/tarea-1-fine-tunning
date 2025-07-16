@@ -1,5 +1,4 @@
-# from entregable_1 import train_model
-from entregable_1_trained import train_model
+from entregable_1 import train_model
 
 def test_metrics(trainer, tokenized_datasets):
     """
@@ -8,8 +7,6 @@ def test_metrics(trainer, tokenized_datasets):
     Esta función utiliza el método `evaluate` del objeto `trainer` para calcular 
     las métricas de evaluación sobre el dataset de prueba tokenizado. 
     Luego, imprime las métricas obtenidas en consola.
-
-    Requiere que `trainer` y `tokenized_datasets["test"]` estén previamente definidos.
     """
     metrics = trainer.evaluate(tokenized_datasets["test"])
     print("Test metrics:")
@@ -18,19 +15,11 @@ def test_metrics(trainer, tokenized_datasets):
 def save_model(name_save, trainer, tokenizer):
     """
     Guarda el modelo entrenado, el tokenizer y su configuración en una carpeta específica.
-
-    Parámetros:
-    ----------
-    name_save : str
-        Ruta o nombre de la carpeta donde se guardará el modelo y el tokenizer.
-
-    Esta función utiliza el método `save_model` del objeto `trainer` y 
-    el método `save_pretrained` del `tokenizer` para almacenar los recursos.
     """
     trainer.save_model(name_save)
     tokenizer.save_pretrained(name_save)
 
-def test_model(trainer, model, tokenizer):
+def test_model(model, tokenizer):
     """
     Realiza inferencia de entidades nombradas (NER) sobre un conjunto de oraciones clínicas de ejemplo.
 
@@ -38,8 +27,6 @@ def test_model(trainer, model, tokenizer):
     y aplica dicho pipeline a un conjunto de oraciones relacionadas con el cáncer de pulmón.
 
     Para cada oración, se imprimen las entidades detectadas junto con su tipo y score de confianza.
-
-    Requiere que las variables `model` y `tokenizer` estén previamente cargadas.
     """
     oraciones_ejemplo = [
         "El paciente presenta carcinoma pulmonar en estadio avanzado.",
@@ -74,19 +61,11 @@ def test_model(trainer, model, tokenizer):
 
 
 if __name__ == "__main__":
-    """
-    Función principal con menú interactivo para ejecutar pruebas sobre el modelo entrenado.
-    
-    Opciones disponibles:
-    1. Evaluar métricas del conjunto de prueba.
-    2. Guardar el modelo y el tokenizer.
-    3. Probar el modelo con oraciones de ejemplo (NER).
-    0. Salir del programa.
-    """
 
     model, trainer, tokenizer, model_name, tokenized_datasets = train_model()
     
     print("=== INICIANDO PROGRAMA ===")
     print(f"Modelo a usar: {model_name}")
 
-    test_model(trainer, model, tokenizer)
+    test_metrics(trainer, tokenized_datasets)
+    test_model(model, tokenizer)

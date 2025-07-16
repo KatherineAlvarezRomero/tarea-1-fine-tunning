@@ -149,7 +149,7 @@ training_args = TrainingArguments(
     report_to="none"
 )
 
-label_feature = dataset["train"].features["ner_tags"].feature  # ← accede al ClassLabel dentro de Sequence
+label_feature = dataset["train"].features["ner_tags"].feature
 id2tag = {i: label_feature.int2str(i) for i in range(len(label_feature.names))}
 
 #Métricas
